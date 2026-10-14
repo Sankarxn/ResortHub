@@ -47,7 +47,7 @@ export const InstructionsModal = ({ isOpen, onClose }) => {
           maxHeight: '90vh',
           overflowY: 'auto',
           boxShadow: 'var(--shadow-xl)',
-          padding: '2.2rem',
+          padding: 'clamp(1.5rem, 5vw, 2.2rem) clamp(1.1rem, 4vw, 2rem)',
           position: 'relative',
         }}
       >
@@ -55,8 +55,8 @@ export const InstructionsModal = ({ isOpen, onClose }) => {
           onClick={onClose}
           style={{
             position: 'absolute',
-            top: '1.25rem',
-            right: '1.25rem',
+            top: '1rem',
+            right: '1rem',
             color: 'var(--color-text-muted)',
             padding: '0.4rem',
             borderRadius: 'var(--radius-full)',
@@ -64,29 +64,32 @@ export const InstructionsModal = ({ isOpen, onClose }) => {
             alignItems: 'center',
             justifyContent: 'center',
             border: '1px solid var(--color-border)',
+            cursor: 'pointer',
+            backgroundColor: '#FFFFFF',
           }}
           aria-label="Close modal"
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
           <div
             style={{
-              width: '46px',
-              height: '46px',
+              width: '42px',
+              height: '42px',
               borderRadius: 'var(--radius-md)',
               backgroundColor: 'rgba(23, 61, 51, 0.1)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: 'var(--color-primary)',
+              flexShrink: 0,
             }}
           >
-            <Compass size={26} />
+            <Compass size={24} />
           </div>
           <div>
-            <h2 id="instructions-title" style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', color: 'var(--color-primary)' }}>
+            <h2 id="instructions-title" style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.2rem, 3.8vw, 1.45rem)', color: 'var(--color-primary)', lineHeight: 1.2 }}>
               How to Discover Stays in Kannur, Kerala
             </h2>
             <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>

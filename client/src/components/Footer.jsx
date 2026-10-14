@@ -9,7 +9,7 @@ export const Footer = () => {
         backgroundColor: '#112D26',
         color: '#EDE5D8',
         borderTop: '1px solid rgba(214, 167, 91, 0.2)',
-        padding: '3rem 0 2rem',
+        padding: 'clamp(2rem, 5vw, 3rem) 0 1.75rem',
         marginTop: 'auto',
       }}
     >
@@ -20,8 +20,8 @@ export const Footer = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
-            gap: '1.5rem',
-            paddingBottom: '2rem',
+            gap: '1.25rem',
+            paddingBottom: '1.75rem',
             borderBottom: '1px solid rgba(226, 219, 208, 0.12)',
           }}
         >

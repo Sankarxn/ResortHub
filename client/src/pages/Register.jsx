@@ -146,7 +146,7 @@ export const Register = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '2.5rem',
+          padding: 'clamp(1.25rem, 4vw, 2.5rem) clamp(0.75rem, 3vw, 1.5rem)',
         }}
       >
         <div
@@ -154,12 +154,48 @@ export const Register = () => {
             maxWidth: '460px',
             width: '100%',
             backgroundColor: '#FFFFFF',
-            padding: '2.8rem 2.4rem',
+            padding: 'clamp(1.75rem, 5vw, 2.8rem) clamp(1.25rem, 4vw, 2.4rem)',
             borderRadius: 'var(--radius-xl)',
             boxShadow: 'var(--shadow-lg)',
             border: '1px solid var(--color-border)',
           }}
         >
+          {/* Mobile-Only Brand Header */}
+          <div
+            className="show-mobile-only"
+            style={{
+              display: 'none',
+              alignItems: 'center',
+              gap: '0.65rem',
+              marginBottom: '1.5rem',
+            }}
+          >
+            <div
+              style={{
+                width: '36px',
+                height: '36px',
+                backgroundColor: 'var(--color-primary)',
+                color: 'var(--color-accent)',
+                borderRadius: 'var(--radius-md)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Palmtree size={20} />
+            </div>
+            <span
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '1.45rem',
+                fontWeight: '700',
+                color: 'var(--color-primary)',
+              }}
+            >
+              Resort<span style={{ color: 'var(--color-accent)' }}>Hub</span>
+            </span>
+          </div>
+
           <div style={{ marginBottom: '1.75rem' }}>
             <span
               style={{
@@ -337,6 +373,14 @@ export const Register = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 900px) {
+          .hide-mobile {
+            display: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

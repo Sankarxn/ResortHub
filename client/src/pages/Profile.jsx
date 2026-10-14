@@ -37,33 +37,34 @@ export const Profile = () => {
           <div
             style={{
               backgroundColor: 'var(--color-primary)',
-              padding: '3rem 2.5rem',
+              padding: 'clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)',
               color: '#FFFFFF',
               position: 'relative',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
               <div
                 style={{
-                  width: '74px',
-                  height: '74px',
+                  width: '68px',
+                  height: '68px',
                   borderRadius: 'var(--radius-full)',
                   backgroundColor: 'var(--color-accent)',
                   color: 'var(--color-primary)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '2rem',
+                  fontSize: '1.85rem',
                   fontWeight: '700',
                   boxShadow: 'var(--shadow-sm)',
+                  flexShrink: 0,
                 }}
               >
-                {user?.name ? user.name.charAt(0).toUpperCase() : <User size={34} />}
+                {user?.name ? user.name.charAt(0).toUpperCase() : <User size={30} />}
               </div>
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <span
                   style={{
-                    fontSize: '0.8rem',
+                    fontSize: '0.78rem',
                     textTransform: 'uppercase',
                     letterSpacing: '0.12em',
                     color: 'var(--color-accent)',
@@ -72,10 +73,18 @@ export const Profile = () => {
                 >
                   Kannur Explorer • Verified Member
                 </span>
-                <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.85rem', lineHeight: 1.2, marginTop: '0.2rem' }}>
+                <h1
+                  style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: 'clamp(1.5rem, 4vw, 1.85rem)',
+                    lineHeight: 1.2,
+                    marginTop: '0.2rem',
+                    wordBreak: 'break-word',
+                  }}
+                >
                   {user?.name || 'Explorer'}
                 </h1>
-                <p style={{ fontSize: '0.9rem', color: '#EDE5D8' }}>
+                <p style={{ fontSize: '0.88rem', color: '#EDE5D8', wordBreak: 'break-all' }}>
                   {user?.email}
                 </p>
               </div>
@@ -83,7 +92,7 @@ export const Profile = () => {
           </div>
 
           {/* Profile Details List */}
-          <div style={{ padding: '2.5rem' }}>
+          <div style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 2rem)' }}>
             <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', color: 'var(--color-primary)', marginBottom: '1.5rem' }}>
               Traveler Profile
             </h3>

@@ -120,7 +120,7 @@ export const Login = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '2.5rem',
+          padding: 'clamp(1.25rem, 4vw, 2.5rem) clamp(0.75rem, 3vw, 1.5rem)',
         }}
       >
         <div
@@ -128,13 +128,49 @@ export const Login = () => {
             maxWidth: '440px',
             width: '100%',
             backgroundColor: '#FFFFFF',
-            padding: '3rem 2.5rem',
+            padding: 'clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem)',
             borderRadius: 'var(--radius-xl)',
             boxShadow: 'var(--shadow-lg)',
             border: '1px solid var(--color-border)',
           }}
         >
-          <div style={{ marginBottom: '2rem' }}>
+          {/* Mobile-Only Brand Header */}
+          <div
+            className="show-mobile-only"
+            style={{
+              display: 'none',
+              alignItems: 'center',
+              gap: '0.65rem',
+              marginBottom: '1.5rem',
+            }}
+          >
+            <div
+              style={{
+                width: '36px',
+                height: '36px',
+                backgroundColor: 'var(--color-primary)',
+                color: 'var(--color-accent)',
+                borderRadius: 'var(--radius-md)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Palmtree size={20} />
+            </div>
+            <span
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontSize: '1.45rem',
+                fontWeight: '700',
+                color: 'var(--color-primary)',
+              }}
+            >
+              Resort<span style={{ color: 'var(--color-accent)' }}>Hub</span>
+            </span>
+          </div>
+
+          <div style={{ marginBottom: '1.75rem' }}>
             <span
               style={{
                 fontSize: '0.8rem',

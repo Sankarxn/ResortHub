@@ -54,7 +54,7 @@ export const Rooms = () => {
       <section
         style={{
           position: 'relative',
-          padding: '5rem 0 4rem',
+          padding: 'clamp(3rem, 6vw, 4.5rem) 1rem clamp(2rem, 5vw, 3.5rem)',
           backgroundImage: `linear-gradient(rgba(15, 39, 32, 0.78), rgba(15, 39, 32, 0.9)), url('https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1600&q=85')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -71,13 +71,13 @@ export const Rooms = () => {
               backgroundColor: 'rgba(214, 167, 91, 0.2)',
               border: '1px solid rgba(214, 167, 91, 0.45)',
               color: 'var(--color-accent)',
-              padding: '0.45rem 1.15rem',
+              padding: '0.4rem 1rem',
               borderRadius: 'var(--radius-full)',
-              fontSize: '0.84rem',
+              fontSize: 'clamp(0.74rem, 2vw, 0.84rem)',
               fontWeight: '600',
               textTransform: 'uppercase',
-              letterSpacing: '0.12em',
-              marginBottom: '1.25rem',
+              letterSpacing: '0.1em',
+              marginBottom: '1rem',
             }}
           >
             <Sparkles size={14} />
@@ -87,9 +87,9 @@ export const Rooms = () => {
           <h1
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: 'clamp(2.3rem, 5vw, 3.4rem)',
-              lineHeight: 1.15,
-              marginBottom: '1.25rem',
+              fontSize: 'clamp(1.75rem, 4.5vw, 3.2rem)',
+              lineHeight: 1.18,
+              marginBottom: '1rem',
               fontWeight: '600',
             }}
           >
@@ -97,12 +97,11 @@ export const Rooms = () => {
           </h1>
           <p
             style={{
-              fontSize: '1.1rem',
+              fontSize: 'clamp(0.92rem, 2vw, 1.08rem)',
               color: '#EDE5D8',
               lineHeight: 1.6,
-              marginBottom: '2.5rem',
               maxWidth: '680px',
-              margin: '0 auto 2.5rem',
+              margin: '0 auto 2rem',
             }}
           >
             Browse private beach chalets, wooden lofts, and heritage villas available across Kannur. Check room capacities, amenities, and explore locations on Google Maps.
@@ -113,25 +112,28 @@ export const Rooms = () => {
             style={{
               backgroundColor: '#FFFFFF',
               borderRadius: 'var(--radius-xl)',
-              padding: '0.5rem 0.5rem 0.5rem 1.25rem',
+              padding: '0.4rem 0.4rem 0.4rem 1rem',
               display: 'flex',
               alignItems: 'center',
               boxShadow: 'var(--shadow-xl)',
               maxWidth: '650px',
               margin: '0 auto',
+              width: '100%',
+              boxSizing: 'border-box',
             }}
           >
-            <Search size={22} color="var(--color-primary)" style={{ flexShrink: 0, marginRight: '0.75rem' }} />
+            <Search size={20} color="var(--color-primary)" style={{ flexShrink: 0, marginRight: '0.5rem' }} />
             <input
               type="text"
-              placeholder="Search by room name, resort, or location (e.g. Villa, Muzhappilangad)..."
+              placeholder="Search by room, resort, or location..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{
                 flex: 1,
+                minWidth: 0,
                 border: 'none',
                 outline: 'none',
-                fontSize: '1rem',
+                fontSize: '0.95rem',
                 color: 'var(--color-text-main)',
                 backgroundColor: 'transparent',
               }}
@@ -144,6 +146,7 @@ export const Rooms = () => {
                   color: 'var(--color-text-muted)',
                   display: 'flex',
                   alignItems: 'center',
+                  cursor: 'pointer',
                 }}
                 aria-label="Clear search"
               >
@@ -153,9 +156,11 @@ export const Rooms = () => {
             <button
               className="btn btn-primary"
               style={{
-                padding: '0.75rem 1.6rem',
+                padding: '0.65rem 1.25rem',
                 borderRadius: 'var(--radius-lg)',
-                marginLeft: '0.5rem',
+                marginLeft: '0.35rem',
+                fontSize: '0.88rem',
+                flexShrink: 0,
               }}
               onClick={() => {}}
             >
@@ -197,8 +202,8 @@ export const Rooms = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-              gap: '2rem',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
+              gap: 'clamp(1.25rem, 3vw, 2rem)',
             }}
           >
             {filteredRooms.map((room, idx) => (

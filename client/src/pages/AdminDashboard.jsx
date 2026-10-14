@@ -686,7 +686,7 @@ export const AdminDashboard = () => {
               </p>
             </div>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', alignItems: 'center', width: '100%', maxWidth: '640px' }}>
               {/* Search Bar */}
               <div
                 style={{
@@ -697,10 +697,11 @@ export const AdminDashboard = () => {
                   border: '1px solid var(--color-border)',
                   borderRadius: 'var(--radius-md)',
                   padding: '0.55rem 0.85rem',
-                  minWidth: '240px',
+                  flex: '1 1 220px',
+                  minWidth: '0',
                 }}
               >
-                <Search size={16} color="var(--color-text-muted)" />
+                <Search size={16} color="var(--color-text-muted)" style={{ flexShrink: 0 }} />
                 <input
                   type="text"
                   placeholder="Search rooms, amenities..."
@@ -711,11 +712,12 @@ export const AdminDashboard = () => {
                     background: 'none',
                     outline: 'none',
                     width: '100%',
+                    minWidth: '0',
                     fontSize: '0.88rem',
                   }}
                 />
                 {searchTerm && (
-                  <button onClick={() => setSearchTerm('')} style={{ color: 'var(--color-text-muted)' }}>
+                  <button onClick={() => setSearchTerm('')} style={{ color: 'var(--color-text-muted)', cursor: 'pointer' }}>
                     <X size={14} />
                   </button>
                 )}
@@ -735,6 +737,8 @@ export const AdminDashboard = () => {
                   outline: 'none',
                   cursor: 'pointer',
                   fontSize: '0.88rem',
+                  flex: '1 1 180px',
+                  minWidth: '0',
                 }}
               >
                 <option value="ALL">All Resorts ({rooms.length})</option>
@@ -1138,7 +1142,7 @@ export const AdminDashboard = () => {
               </div>
 
               {/* Capacity & Price Row */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1.25rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: '600', color: 'var(--color-primary)', marginBottom: '0.4rem' }}>
                     Max Guests Capacity <span style={{ color: 'var(--color-error)' }}>*</span>
@@ -1359,7 +1363,7 @@ export const AdminDashboard = () => {
               </div>
 
               {/* Capacity & Price Row */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1.25rem' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: '600', color: 'var(--color-primary)', marginBottom: '0.4rem' }}>
                     Max Guests Capacity <span style={{ color: 'var(--color-error)' }}>*</span>
