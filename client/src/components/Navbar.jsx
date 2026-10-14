@@ -85,6 +85,26 @@ export const Navbar = () => {
               <Compass size={17} />
               <span>Explore Rooms & Suites</span>
             </Link>
+
+            {user?.role === 'admin' && (
+              <Link
+                to="/admin/dashboard"
+                style={{
+                  fontWeight: '700',
+                  fontSize: '0.92rem',
+                  color: 'var(--color-accent)',
+                  backgroundColor: 'rgba(23, 61, 51, 0.08)',
+                  padding: '0.4rem 0.85rem',
+                  borderRadius: 'var(--radius-full)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  border: '1px solid rgba(214, 167, 91, 0.35)',
+                }}
+              >
+                <span>Admin Dashboard</span>
+              </Link>
+            )}
           </nav>
 
           {/* User Profile Area */}

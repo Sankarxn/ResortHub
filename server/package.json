@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "seed": "node src/scripts/seedResorts.js"
+    "seed": "node src/scripts/seedResorts.js",
+    "create-admin": "node src/scripts/createAdmin.js",
+    "test:security": "node src/scripts/testAdminSecurity.js"
   },
   "keywords": [
     "mern",

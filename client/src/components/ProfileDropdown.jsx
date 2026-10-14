@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { User, HelpCircle, LogOut } from 'lucide-react';
+import { User, HelpCircle, LogOut, ShieldCheck } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export const ProfileDropdown = ({ isOpen, onClose, onOpenInstructions, onLogout, user }) => {
@@ -61,6 +61,34 @@ export const ProfileDropdown = ({ isOpen, onClose, onOpenInstructions, onLogout,
       </div>
 
       <div style={{ padding: '0.4rem 0' }}>
+        {user?.role === 'admin' && (
+          <button
+            onClick={() => {
+              onClose();
+              navigate('/admin/dashboard');
+            }}
+            style={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              padding: '0.75rem 1.25rem',
+              fontSize: '0.9rem',
+              color: 'var(--color-primary)',
+              fontWeight: '700',
+              textAlign: 'left',
+              transition: 'var(--transition)',
+              backgroundColor: '#FAF5EB',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-surface-soft)')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#FAF5EB')}
+            role="menuitem"
+          >
+            <ShieldCheck size={18} color="var(--color-accent)" />
+            <span>Admin Dashboard</span>
+          </button>
+        )}
+
         <button
           onClick={() => {
             onClose();

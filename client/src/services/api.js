@@ -107,3 +107,92 @@ export const resortService = {
     return `https://www.google.com/maps/search/?api=1&query=${query}`;
   },
 };
+
+export const adminService = {
+  // Get dashboard statistics (resort count, room count, summary list)
+  getDashboardStats: async () => {
+    const response = await fetch(`${API_BASE}/admin/dashboard`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const error = new Error(data.message || 'Failed to fetch admin dashboard stats.');
+      error.status = response.status;
+      throw error;
+    }
+    return data.data;
+  },
+
+  // Get all rooms flattened across resorts
+  getRooms: async () => {
+    const response = await fetch(`${API_BASE}/admin/rooms`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const error = new Error(data.message || 'Failed to fetch rooms.');
+      error.status = response.status;
+      throw error;
+    }
+    return data.data || [];
+  },
+
+  // Add room under parent resort
+  addRoom: async (resortId, roomData) => {
+    const response = await fetch(`${API_BASE}/admin/resorts/${resortId}/rooms`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(roomData),
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const error = new Error(data.message || 'Failed to add room.');
+      error.status = response.status;
+      throw error;
+    }
+    return data.data;
+  },
+
+  // Update room
+  updateRoom: async (resortId, roomId, roomData) => {
+    const response = await fetch(`${API_BASE}/admin/resorts/${resortId}/rooms/${roomId}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify(roomData),
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const error = new Error(data.message || 'Failed to update room.');
+      error.status = response.status;
+      throw error;
+    }
+    return data.data;
+  },
+
+  // Delete room
+  deleteRoom: async (resortId, roomId) => {
+    const response = await fetch(`${API_BASE}/admin/resorts/${resortId}/rooms/${roomId}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+    });
+
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const error = new Error(data.message || 'Failed to delete room.');
+      error.status = response.status;
+      throw error;
+    }
+    return data.data;
+  },
+};

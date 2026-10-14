@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import authRoutes from './routes/authRoutes.js';
 import resortRoutes from './routes/resortRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
 import { notFoundHandler, errorHandler } from './middleware/errorMiddleware.js';
 
 const app = express();
@@ -51,6 +52,7 @@ app.get('/api/health', (req, res) => {
 // Primary REST routes
 app.use('/api/auth', authRoutes);
 app.use('/api/resorts', resortRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Error Handling Middlewares
 app.use(notFoundHandler);

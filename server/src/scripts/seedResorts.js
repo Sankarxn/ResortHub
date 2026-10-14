@@ -240,19 +240,19 @@ const seedDatabase = async () => {
     console.log(`Successfully seeded ${inserted.length} resorts into MongoDB!`);
 
     // 3. Ensure a default demo admin user exists safely
-    const adminEmail = 'admin@resorthub.com';
+    const adminEmail = 'sankaran@admin.com';
     const existingAdmin = await User.findOne({ email: adminEmail });
 
     if (!existingAdmin) {
       console.log('Creating default administrator account...');
-      const adminPasswordHash = await hashPassword('AdminPass123!');
+      const adminPasswordHash = await hashPassword('Sankaran@123');
       await User.create({
-        name: 'ResortHub Admin',
+        name: 'Sankaran (Administrator)',
         email: adminEmail,
         passwordHash: adminPasswordHash,
         role: 'admin',
       });
-      console.log(`Admin account created: ${adminEmail} (Password: AdminPass123!)`);
+      console.log(`Admin account created: ${adminEmail} (Password: Sankaran@123)`);
     } else {
       console.log(`Admin account already exists: ${adminEmail}`);
     }

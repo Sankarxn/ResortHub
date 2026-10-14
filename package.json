@@ -4,8 +4,14 @@
   "description": "Full-stack MERN Resort & Stay Discovery Platform",
   "private": true,
   "scripts": {
-    "dev:server": "cd server && npm run dev",
-    "dev:client": "cd client && npm run dev",
-    "seed": "cd server && npm run seed"
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed",
+    "create-admin": "npm --prefix server run create-admin",
+    "test:security": "npm --prefix server run test:security"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
   }
 }
